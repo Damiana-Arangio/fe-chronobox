@@ -1,0 +1,83 @@
+/* CapsuleList.css */
+
+/* contenitore visibile */
+.marquee-container {
+	width: 100%;
+	overflow: hidden;
+	padding: 30px 0;
+}
+
+/* nastro che scorre orizzontalmente */
+.marquee-track {
+	display: flex;
+	gap: 20px;
+	width: max-content;
+	/* si adatta al contenuto */
+	--marquee-duration: 120s;
+	/* default, sovrascritto da JS */
+	animation: marquee-scroll var(--marquee-duration) linear infinite;
+}
+
+/* pausa controllata da JS */
+.marquee-track.is-paused {
+	animation-play-state: paused;
+}
+
+/* NON usiamo più :hover per la pausa,
+   il controllo è solo via classe .is-paused */
+
+/* card singola nel marquee */
+.marquee-item {
+	flex: 0 0 auto;
+	/* mantiene la larghezza naturale della card */
+	width: 350px;
+	/* opzionale, se vuoi limitare la larghezza */
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+	.marquee-track {
+		gap: 16px;
+	}
+
+	.marquee-item {
+		width: 300px;
+	}
+}
+
+/* Tablet piccolo */
+@media (max-width: 768px) {
+	.marquee-track {
+		gap: 14px;
+	}
+
+	.marquee-item {
+		width: 260px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 430px) {
+	.marquee-container {
+		padding: 20px 0;
+	}
+
+	.marquee-track {
+		gap: 12px;
+	}
+
+	.marquee-item {
+		width: 220px;
+	}
+}
+
+/* animazione continua da 0 a -50% (lista duplicata) */
+@keyframes marquee-scroll {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}

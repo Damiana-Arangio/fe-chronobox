@@ -1,0 +1,407 @@
+/* .container-cards {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+} */
+
+.container-capsule {
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0px 2px 10px 5px rgb(0, 0, 0);
+	overflow: hidden;
+	transition: transform 0.2s ease;
+	position: relative;
+	height: 570px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.container-capsule:hover {
+	transform: translateY(-3px);
+}
+
+.container-image img {
+	width: 100%;
+	height: 350px;
+}
+
+.container-capsule-body {
+	display: flex;
+	flex-direction: column;
+	padding: 16px 16px 16px 16px;
+}
+
+.container-capsule-body h5 {
+	color: #000000;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.capsule-title:hover {
+	color: var(--dusty-taupe);
+}
+
+.capsule-description {
+	color: #5c5c5c;
+	font-size: 0.95rem;
+	margin-bottom: 10px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	/* numero di righe */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.capsule-footer {
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.capsule-price {
+	font-size: 1.7em;
+}
+
+.original-price {
+	font-weight: bold;
+	color: #909090;
+	font-size: 1.1rem;
+	text-decoration: line-through;
+	display: flex;
+	flex-direction: column;
+}
+
+.discounted-price {
+	font-size: 2rem;
+	color: red;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.normal-price {
+	color: black;
+	font-weight: bold;
+}
+
+.capsule-buttons {
+	display: flex;
+	/* gap: 8px; */
+}
+
+.capsule-button {
+	color: white;
+	background-color: var(--mauve-bark);
+	padding: 8px 14px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.capsule-button:hover {
+	background: var(--dusty-taupe);
+}
+
+.wishlist-btn {
+	background-color: var(--mauve-bark);
+	border-radius: 6px 0px 0px 6px;
+	position: absolute;
+	top: 15px;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wishlist-btn:hover {
+	background-color: var(--dusty-taupe);
+}
+
+.customize-btn {
+	background-color: var(--mauve-bark);
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.customize-btn:hover {
+	background-color: var(--dusty-taupe);
+}
+
+.customize-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.customize-modal {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	max-width: 500px;
+	width: 90%;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+.customize-modal h3 {
+	margin-top: 0;
+	color: black;
+}
+
+.modal-content {
+	margin: 20px 0;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: black;
+}
+
+.form-group input[type="file"] {
+	margin-bottom: 10px;
+}
+
+.image-preview {
+	max-width: 100%;
+	max-height: 200px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.form-group textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+.char-counter {
+	text-align: right;
+	font-size: 12px;
+	color: #666;
+	margin-top: 5px;
+}
+
+.modal-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.modal-add-btn,
+.modal-cancel-btn {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.modal-add-btn {
+	background: #28a745;
+	color: white;
+}
+
+.modal-add-btn:hover:not(:disabled) {
+	background: #218838;
+}
+
+.modal-add-btn:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+.modal-cancel-btn {
+	background: #6c757d;
+	color: white;
+}
+
+.modal-cancel-btn:hover {
+	background: #5a6268;
+}
+
+/* Responsive adjustments for marquee cards */
+@media (max-width: 1024px) {
+	.container-capsule {
+		height: 520px;
+	}
+
+	.container-image img {
+		height: 300px;
+	}
+
+	.container-capsule-body {
+		padding: 12px;
+	}
+
+	.container-capsule-body h5 {
+		font-size: 1.1rem;
+		margin-bottom: 8px;
+	}
+
+	.capsule-description {
+		font-size: 0.9rem;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		margin-bottom: 8px;
+	}
+
+	.capsule-footer {
+		height: 56px;
+	}
+
+	.capsule-price {
+		font-size: 1.5em;
+	}
+
+	.discounted-price {
+		font-size: 1.8rem;
+		margin-right: 8px;
+	}
+
+	.original-price {
+		font-size: 1rem;
+	}
+
+	.capsule-button {
+		padding: 7px 12px;
+		font-size: 13px;
+	}
+
+	.customize-btn {
+		font-size: 0.95rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.container-capsule {
+		height: 480px;
+	}
+
+	.container-image img {
+		height: 260px;
+	}
+
+	.container-capsule-body {
+		padding: 10px;
+	}
+
+	.container-capsule-body h5 {
+		font-size: 1rem;
+		margin-bottom: 6px;
+	}
+
+	.capsule-description {
+		font-size: 0.88rem;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		margin-bottom: 6px;
+	}
+
+	.capsule-footer {
+		height: 54px;
+		align-items: center;
+	}
+
+	.capsule-buttons {
+		gap: 6px;
+	}
+
+	.capsule-button {
+		padding: 6px 11px;
+		font-size: 12px;
+	}
+
+	.customize-btn {
+		font-size: 0.9rem;
+	}
+
+	.wishlist-btn {
+		top: 10px;
+	}
+}
+
+@media (max-width: 430px) {
+	.container-capsule {
+		height: 440px;
+	}
+
+	.container-image img {
+		height: 220px;
+	}
+
+	.container-capsule-body {
+		padding: 8px;
+	}
+
+	.container-capsule-body h5 {
+		font-size: 0.95rem;
+		margin-bottom: 6px;
+	}
+
+	.capsule-description {
+		font-size: 0.85rem;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		margin-bottom: 6px;
+	}
+
+	.capsule-footer {
+		height: auto;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+
+	.capsule-price {
+		font-size: 1.3em;
+	}
+
+	.discounted-price {
+		font-size: 1.6rem;
+		margin-right: 6px;
+	}
+
+	.original-price {
+		font-size: 0.95rem;
+	}
+
+	.capsule-buttons {
+		width: 100%;
+		justify-content: space-between;
+		gap: 8px;
+	}
+
+	.capsule-button {
+		flex: 1 1 auto;
+		padding: 8px 10px;
+		font-size: 12px;
+	}
+
+	.customize-btn {
+		font-size: 0.9rem;
+	}
+
+	.wishlist-btn {
+		top: 8px;
+	}
+}
